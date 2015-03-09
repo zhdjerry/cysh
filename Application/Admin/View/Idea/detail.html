@@ -1,0 +1,25 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>创意展示</h2>
+    </div>
+    <div class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">{$row.idea_name}</span></label>
+        </div>
+        <div class="form-item">
+            {$row.idea_content}
+        </div>
+        <div class="form-item">
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Idea/index')}');
+    </script>
+</block>

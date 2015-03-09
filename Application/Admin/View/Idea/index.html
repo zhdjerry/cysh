@@ -1,0 +1,101 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>创意列表</h2>
+	</div>
+	<div class="cf">
+		<!--div class="fl">
+            <a class="btn" href="{:U('User/add')}">新 增</a>
+            <button class="btn ajax-post" url="{:U('User/changeStatus',array('method'=>'resumeUser'))}" target-form="ids">启 用</button>
+            <button class="btn ajax-post" url="{:U('User/changeStatus',array('method'=>'forbidUser'))}" target-form="ids">禁 用</button>
+            <button class="btn ajax-post confirm" url="{:U('User/changeStatus',array('method'=>'deleteUser'))}" target-form="ids">删 除</button>
+        </div-->
+
+        <!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input type="text" name="ideaname" class="search-input" value="{:I('ideaname')}" placeholder="请输入创意名称或者ID">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class="">ID</th>
+		<th class="">创意名称</th>
+		<th class="">提交人</th>
+		<th class="">提交时间</th>
+        <th class="">审核人</th>
+		<th class="">审核时间</th>
+		<th class="">状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+		<notempty name="_list">
+		<volist name="_list" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.uid}" /></td>
+			<td>{$vo.id} </td>
+			<td>{$vo.idea_name}</td>
+			<td>{$vo.uid_text}</td>
+			<td><span>{$vo.add_time|time_format}</span></td>
+            <td>{$vo.check_uid_text}</td>
+			<td><span>{$vo.check_time|time_format}</span></td>
+			<td>{$vo.status_text}</td>
+			<td>
+                <a href="{:U('Idea/detail?id='.$vo['id'])}">查看</a>
+                <eq name="vo.status" value="1">
+				<a href="{:U('Idea/changeStatus?method=forbid&id='.$vo['id'])}" class="ajax-get">禁用</a>
+				<else/>
+				<a href="{:U('Idea/changeStatus?method=resume&id='.$vo['id'])}" class="ajax-get">通过</a>
+				</eq>
+				<!--a href="{:U('AuthManager/group?uid='.$vo['uid'])}" class="confirm ajax-get">删除</a-->
+            </td>
+		</tr>
+		</volist>
+		<else/>
+		<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+		</notempty>
+	</tbody>
+    </table>
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+    //导航高亮
+    highlight_subnav('{:U('Idea/index')}');
+	</script>
+</block>
