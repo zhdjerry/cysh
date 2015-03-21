@@ -5,7 +5,7 @@
         <div class="topbar-nav">
             <ul>
                 <if condition="is_login()">
-                    <li class="logout">Hi<a href="/ucenter/index.html" class="user-center-link">微微微微微微蓝</a><a href="#" class="logout-link">退出</a></li>
+                    <li class="logout">Hi<a href="{:U('User/index')}" class="user-center-link">{:get_username()}</a><a href="{:U('User/logout')}" class="logout-link">退出</a></li>
                     <li class="share">
                         <a href="javascript:;" class="title"><span class="icon icon-arrow"><i></i>分享</span></a>
                         <div class="share-list">
@@ -20,7 +20,7 @@
                     <li class="cart">
                         <a href="#" class="title">
                             <span class="cart-number">
-                                <span class="cart-number-c">8</span>
+                                <span class="cart-number-c">0</span>
                                 <span class="cart-number-l"></span>
                                 <span class="cart-number-r"></span>
                             </span>
@@ -28,8 +28,8 @@
                         </a>
                     </li>
                 <else/>
-                    <li class="login"><a href="#" class="title">登陆</a></li>
-                    <li class="reg"><a href="#" class="title">注册</a></li>
+                    <li class="login"><a href="{:U('User/login')}" class="title">登陆</a></li>
+                    <li class="reg"><a href="{:U('User/register')}" class="title">注册</a></li>
                 </if>
             </ul>
         </div>
