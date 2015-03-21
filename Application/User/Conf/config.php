@@ -15,5 +15,5 @@
 define('UC_APP_ID', 1); //应用ID
 define('UC_API_TYPE', 'Model'); //可选值 Model / Service
 define('UC_AUTH_KEY', 'Pym.zThG!q:eBV`Yg3Etx|QKW7L52C#v-<XZbd*9'); //加密KEY
-define('UC_DB_DSN', 'mysqli://root:root@127.0.0.1:3306/cysh'); // 数据库连接，使用Model方式调用API必须配置此项
+define('UC_DB_DSN', 'mysqli://root:123@127.0.0.1:3306/cysh'); // 数据库连接，使用Model方式调用API必须配置此项
 define('UC_TABLE_PREFIX', 'cysh_'); // 数据表前缀，使用Model方式调用API必须配置此项
