@@ -60,8 +60,8 @@ return array(
         '__STATIC__' => __ROOT__ . '/Public/static',
         '__ADDONS__' => __ROOT__ . '/Public/' . MODULE_NAME . '/Addons',
         '__IMG__'    => __ROOT__ . '/Public/' . MODULE_NAME . '/images',
-        '__CSS__'    => __ROOT__ . '/Public/' . MODULE_NAME . '/css',
-        '__JS__'     => __ROOT__ . '/Public/' . MODULE_NAME . '/js',
+        '__CSS__'    => __ROOT__ . '/Public/' . MODULE_NAME . '/styles',
+        '__JS__'     => __ROOT__ . '/Public/' . MODULE_NAME . '/scripts',
     ),
 
     /* SESSION 和 COOKIE 配置 */

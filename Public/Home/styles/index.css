@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.index-story { background: #f1f1f1; padding: 100px 0; }
+.index-story dd.image { width: 490px; padding-left: 60px; float: left; position: relative; }
+.index-story dd.image i { width: 56px; height: 63px; display: block; background: url(../images/global/player.png) no-repeat; position: absolute; left: 50%; top: 50%; margin: -31px 0 0 -28px; }
+.index-story dt { width: 567px; height: 310px; padding: 30px 20px 0 60px; float: left; background: url(../images/index/qcode.jpg) no-repeat; font-size: 16px; line-height: 26px; position: relative; }
+.index-story .first-letter { font-size: 106px; line-height: 106px; float: left; position: absolute; left: 60px; top: 0; }
+.index-story .blank { width: 70px; height: 70px; display: block; float: left; }
+.index-story .title { width: 485px; font-size: 24px; font-weight: normal; float: left; padding-bottom: 12px; }
+.index-story .btn-text { padding-top: 40px; }
+.index-story .btn-text a { width: 156px; height: 43px; display: block; border: 2px #0e7ac5 solid; text-align: center; line-height: 43px; font-size: 18px; color: #0e7ac5; transition: background 300ms linear, color 300ms linear; }
+.index-story .btn-text a:hover { background: #0e7ac5; color: #ffffff; }
